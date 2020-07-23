@@ -1,0 +1,28 @@
+server:
+  port: 8003
+mybatis:
+  type-aliases-package: com.su.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+spring:
+  application:
+    name: spring-cloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hospitalmanager?useUnicode=true&serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 123456
+
+#Eureka配置,服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/,http://eureka7001.com:7001
+  instance:
+    instance-id: springcloud-provide-dept8003 #修改eureka上的默认描述信息
+
+info:
+  app.name: su-spring-cloud
+  compony.name: gzhc365.com
